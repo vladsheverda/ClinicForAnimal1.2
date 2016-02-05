@@ -21,5 +21,7 @@ namespace ClinicForAnimal1._2.Models
         public DbSet<ApplicationRole> IdentityRoles { get; set; }
 
         public DbSet<EditRoleModel> EditRoleModels { get; set; }
+
+        public System.Data.Entity.DbSet<ClinicForAnimal1._2.Models.DoctorInfo.DoctorInfoForAdmin> DoctorInfoForAdmins { get; set; }
     }
 }

@@ -78,7 +78,6 @@ c:\users\vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicFor
 c:\users\vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\bin\ru\System.Web.WebPages.Razor.resources.dll
 c:\users\vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\obj\Debug\ClinicForAnimal1.2.dll
 c:\users\vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\obj\Debug\ClinicForAnimal1.2.pdb
-c:\users\vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\obj\Debug\ClinicForAnimal1.2.csprojResolveAssemblyReference.cache
 c:\users\vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\obj\Debug\ClinicForAnimal1._2.Migrations.InitialCreate.resources
 c:\users\vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\obj\Debug\ClinicForAnimal1.2.csproj.GenerateResource.Cache
 c:\users\vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\obj\Debug\ClinicForAnimal1._2.Migrations.DataMigration.resources
@@ -129,3 +128,4 @@ c:\users\vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicFor
 C:\Users\Vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\obj\Debug\ClinicForAnimal1._2.Migrations.DataMigration2.resources
 C:\Users\Vlad\Documents\Visual Studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\bin\ru\EntityFramework.resources.dll
 C:\Users\Vlad\Documents\Visual Studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\bin\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\obj\Debug\ClinicForAnimal1.2.csprojResolveAssemblyReference.cache

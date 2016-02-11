@@ -127,3 +127,5 @@ c:\users\vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicFor
 c:\users\vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\bin\Microsoft.Owin.Security.Google.dll
 c:\users\vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Vlad\documents\visual studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\obj\Debug\ClinicForAnimal1._2.Migrations.DataMigration2.resources
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\bin\ru\EntityFramework.resources.dll
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\ClinicForAnimal1.2\ClinicForAnimal1.2\bin\ru\EntityFramework.SqlServer.resources.dll

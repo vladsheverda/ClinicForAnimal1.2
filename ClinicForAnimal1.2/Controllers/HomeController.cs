@@ -5,8 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace ClinicForAnimal1._2.Controllers
-{
-    [RequireHttps]  
+{ 
     public class HomeController : Controller
     {
         //[Authorize(Roles ="admin")]

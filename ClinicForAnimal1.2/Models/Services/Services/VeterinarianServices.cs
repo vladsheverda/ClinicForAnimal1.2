@@ -7,19 +7,3 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClinicForAnimal1._2.Models.Services.Category
-{
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    
-    public partial class CategoryForServices : DbContext
-    {
-        public CategoryForServices()
-            : base("name=CategoryForServices")
-        {
-        }
-    
-        public virtual DbSet<CategoryService> CategoryServices { get; set; }
-    }
-}

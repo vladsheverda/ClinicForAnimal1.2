@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VeterinarianServicesStoreContainer" CdmEntityContainer="VeterinarianServicesEntities">
+    <EntitySetMapping Name="VeterinarianServices">
+      <EntityTypeMapping TypeName="VeterinarianServices.VeterinarianService">
+        <MappingFragment StoreEntitySet="VeterinarianServices">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NameOfVeterinaryServices" ColumnName="NameOfVeterinaryServices" />
+          <ScalarProperty Name="UnitOfMeasurement" ColumnName="UnitOfMeasurement" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="IdServices" ColumnName="IdServices" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -13,6 +13,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Calendar", "Index", "Home")</li>
                     <li>@Html.ActionLink("Доктора", "ShowInfoDoctor","DoctorInfo" )</li>
+                    <li>@Html.ActionLink("Услуги и цены", "ShowCategory", "VeterinarianServices")</li>
                 </ul>
             </div>
             <div class="navbar-collapse collapse">
@@ -22,5 +23,4 @@
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @*@RenderSection("scripts", required: false)*@
 </body>

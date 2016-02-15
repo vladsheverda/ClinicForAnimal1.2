@@ -1,0 +1,58 @@
+﻿@model ClinicForAnimal1._2.Models.Services.Services.VeterinarianService
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>VeterinarianService</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NameOfVeterinaryServices)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NameOfVeterinaryServices)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UnitOfMeasurement)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UnitOfMeasurement)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Cost)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Cost)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IdServices)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IdServices)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

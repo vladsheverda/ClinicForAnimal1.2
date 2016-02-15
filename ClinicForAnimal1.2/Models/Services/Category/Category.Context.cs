@@ -21,5 +21,7 @@ namespace ClinicForAnimal1._2.Models.Services.Category
         }
     
         public virtual DbSet<CategoryService> CategoryServices { get; set; }
+
+        public System.Data.Entity.DbSet<ClinicForAnimal1._2.Models.Services.Services.VeterinarianService> VeterinarianServices { get; set; }
     }
 }

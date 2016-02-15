@@ -233,7 +233,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryServicesController.cs" />
     <Compile Include="Controllers\DoctorInfoController.cs" />
+    <Compile Include="Controllers\VeterinarianServicesController.cs" />
     <Compile Include="DiaryContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -301,6 +303,42 @@
     <Compile Include="Models\ApplicationUserManager.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\Services\Category\Category.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Category.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Services\Category\Category.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Category.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Services\Category\Category.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Category.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Services\Category\CategoryService.cs">
+      <DependentUpon>Category.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Services\Services\VeterinarianService.cs">
+      <DependentUpon>VeterinarianServices.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Services\Services\VeterinarianServices.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VeterinarianServices.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Services\Services\VeterinarianServices.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VeterinarianServices.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Services\Services\VeterinarianServices.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VeterinarianServices.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -392,6 +430,26 @@
       <DependentUpon>DoctorInfo.edmx</DependentUpon>
       <LastGenOutput>DoctorInfo.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Services\Category\Category.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Category.edmx</DependentUpon>
+      <LastGenOutput>Category.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Services\Category\Category.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Category.edmx</DependentUpon>
+      <LastGenOutput>Category.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Services\Services\VeterinarianServices.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VeterinarianServices.edmx</DependentUpon>
+      <LastGenOutput>VeterinarianServices.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Services\Services\VeterinarianServices.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VeterinarianServices.edmx</DependentUpon>
+      <LastGenOutput>VeterinarianServices.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap-modal.js" />
@@ -416,6 +474,20 @@
     </EntityDeploy>
     <Content Include="Models\DoctorInfo\DoctorInfo.edmx.diagram">
       <DependentUpon>DoctorInfo.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Services\Category\Category.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Category.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Services\Category\Category.edmx.diagram">
+      <DependentUpon>Category.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Services\Services\VeterinarianServices.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VeterinarianServices.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Services\Services\VeterinarianServices.edmx.diagram">
+      <DependentUpon>VeterinarianServices.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\fullcalendar.js" />
@@ -529,6 +601,17 @@
     <Content Include="Views\DoctorInfo\EditDoctor.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\ForCalendar.cshtml" />
+    <Content Include="Views\VeterinarianServices\Create.cshtml" />
+    <Content Include="Views\VeterinarianServices\Delete.cshtml" />
+    <Content Include="Views\VeterinarianServices\Details.cshtml" />
+    <Content Include="Views\VeterinarianServices\Edit.cshtml" />
+    <Content Include="Views\VeterinarianServices\Index.cshtml" />
+    <Content Include="Views\CategoryServices\Create.cshtml" />
+    <Content Include="Views\CategoryServices\Delete.cshtml" />
+    <Content Include="Views\CategoryServices\Details.cshtml" />
+    <Content Include="Views\CategoryServices\Edit.cshtml" />
+    <Content Include="Views\CategoryServices\Index.cshtml" />
+    <Content Include="Views\VeterinarianServices\ShowCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

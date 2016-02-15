@@ -7,17 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClinicForAnimal1._2.Models.DoctorInfo
+namespace ClinicForAnimal1._2.Models.Services.Category
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DoctorInfoForAdmin
+    public partial class CategoryService
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public string Position { get; set; }
-        public string Description { get; set; }
+        public string CategoryName { get; set; }
     }
 }

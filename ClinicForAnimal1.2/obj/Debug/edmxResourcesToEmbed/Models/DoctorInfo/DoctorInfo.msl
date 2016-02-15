@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище ClinicForAnimalModelContainer" CdmEntityContainer="DoctorInfoEntities">
-    <EntitySetMapping Name="DoctorInfoForAdmin">
-      <EntityTypeMapping TypeName="ClinicForAnimalModel.DoctorInfoForAdmin">
-        <MappingFragment StoreEntitySet="DoctorInfoForAdmin">
+  <EntityContainerMapping StorageEntityContainer="DoctorInfoForAdminStoreContainer" CdmEntityContainer="ClinicForAnimalEntities">
+    <EntitySetMapping Name="DoctorInfoForAdmins">
+      <EntityTypeMapping TypeName="DoctorInfoForAdmin.DoctorInfoForAdmin">
+        <MappingFragment StoreEntitySet="DoctorInfoForAdmins">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />

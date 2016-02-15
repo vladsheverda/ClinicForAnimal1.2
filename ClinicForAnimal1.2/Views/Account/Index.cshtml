@@ -6,3 +6,21 @@
 <h2>Index</h2>
 
 <h2>It,s for login user</h2>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Calendar", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Доктора", "ShowInfoDoctor","DoctorInfo" )</li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse">
+
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @*@RenderSection("scripts", required: false)*@
+</body>

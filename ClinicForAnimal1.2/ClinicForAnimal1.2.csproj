@@ -255,6 +255,11 @@
     </Compile>
     <Compile Include="Models\Calendar\DiaryEvent.cs" />
     <Compile Include="Models\Calendar\Shared.cs" />
+    <Compile Include="Migrations\201602021903442_DataMigration1.cs" />
+    <Compile Include="Migrations\201602021903442_DataMigration1.Designer.cs">
+      <DependentUpon>201602021903442_DataMigration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreateRoleModel.cs" />
     <Compile Include="Models\DoctorInfo\DoctorInfo.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -273,11 +278,6 @@
     <Compile Include="Models\DoctorInfo\DoctorInfoForAdmin.cs">
       <DependentUpon>DoctorInfo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201602021903442_DataMigration1.cs" />
-    <Compile Include="Migrations\201602021903442_DataMigration1.Designer.cs">
-      <DependentUpon>201602021903442_DataMigration1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CreateRoleModel.cs" />
     <Compile Include="Models\EditRoleModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -378,6 +378,10 @@
       <DependentUpon>DiaryContext.edmx</DependentUpon>
       <LastGenOutput>DiaryContext.cs</LastGenOutput>
     </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
     <Content Include="Models\DoctorInfo\DoctorInfo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DoctorInfo.edmx</DependentUpon>
@@ -388,10 +392,6 @@
       <DependentUpon>DoctorInfo.edmx</DependentUpon>
       <LastGenOutput>DoctorInfo.cs</LastGenOutput>
     </Content>
-    <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap-modal.js" />
@@ -402,13 +402,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\DoctorInfo\DoctorInfo.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DoctorInfo.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DoctorInfo\DoctorInfo.edmx.diagram">
-      <DependentUpon>DoctorInfo.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="DiaryContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DiaryContext.Designer.cs</LastGenOutput>
@@ -417,6 +410,13 @@
       <DependentUpon>DiaryContext.edmx</DependentUpon>
     </Content>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <EntityDeploy Include="Models\DoctorInfo\DoctorInfo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DoctorInfo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DoctorInfo\DoctorInfo.edmx.diagram">
+      <DependentUpon>DoctorInfo.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\fullcalendar.js" />
     <Content Include="Scripts\fullcalendar.min.js" />

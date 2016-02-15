@@ -6,10 +6,10 @@ using System.Data.Entity;
 
 namespace ClinicForAnimal1._2.Controllers
 {
-   // [Authorize(Roles ="admin")]
+   //[Authorize(Roles ="admin")]
     public class DoctorInfoController : Controller
     {
-        DoctorInfoEntities doctorInfo = new DoctorInfoEntities();
+        ClinicForAnimalEntities doctorInfo = new ClinicForAnimalEntities ();
         // GET: DoctorInfo
         [HttpGet]
         public ActionResult Create()
@@ -19,7 +19,7 @@ namespace ClinicForAnimal1._2.Controllers
         [HttpPost]
         public ActionResult Create(DoctorInfoForAdmin doc)
         {
-            doctorInfo.DoctorInfoForAdmin.Add(doc);
+            doctorInfo.DoctorInfoForAdmins.Add(doc);
             doctorInfo.SaveChanges();
             return View();
         }
@@ -29,7 +29,7 @@ namespace ClinicForAnimal1._2.Controllers
         [AllowAnonymous]
         public ActionResult ShowInfoDoctor()
         {
-            List<DoctorInfoForAdmin> info = doctorInfo.DoctorInfoForAdmin.ToList();
+            List<DoctorInfoForAdmin> info = doctorInfo.DoctorInfoForAdmins.ToList();
             return View(info);
         }
 
@@ -38,7 +38,7 @@ namespace ClinicForAnimal1._2.Controllers
         [HttpGet]
         public ActionResult Delete(int? id)
         {
-            DoctorInfoForAdmin doc = doctorInfo.DoctorInfoForAdmin.Find(id);
+            DoctorInfoForAdmin doc = doctorInfo.DoctorInfoForAdmins.Find(id);
             if (doc == null)
             {
                 HttpNotFound();
@@ -48,7 +48,7 @@ namespace ClinicForAnimal1._2.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteDoctor(int? id)
         {
-            DoctorInfoForAdmin doc = doctorInfo.DoctorInfoForAdmin.Find(id);
+            DoctorInfoForAdmin doc = doctorInfo.DoctorInfoForAdmins.Find(id);
             if (doc == null)
             {
                 HttpNotFound();
@@ -69,7 +69,7 @@ namespace ClinicForAnimal1._2.Controllers
             {
                 return HttpNotFound();
             }
-            DoctorInfoForAdmin doc = doctorInfo.DoctorInfoForAdmin.Find(id);
+            DoctorInfoForAdmin doc = doctorInfo.DoctorInfoForAdmins.Find(id);
             if (doc != null)
             {
                 return View(doc);

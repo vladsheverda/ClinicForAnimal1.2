@@ -7,21 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClinicForAnimal1._2.Models.DoctorInfo
+namespace ClinicForAnimal1._2.Models.Services.Category
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ClinicForAnimalEntities : DbContext
+    public partial class CategoryForServices : DbContext
     {
-        public ClinicForAnimalEntities()
-            : base("name=ClinicForAnimalEntities")
+        public CategoryForServices()
+            : base("name=CategoryForServices")
         {
         }
     
-      
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
     
-        public virtual DbSet<DoctorInfoForAdmin> DoctorInfoForAdmins { get; set; }
+        public virtual DbSet<CategoryService> CategoryServices { get; set; }
     }
 }

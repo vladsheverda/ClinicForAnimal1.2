@@ -91,7 +91,7 @@ namespace ClinicForAnimal1._2.Controllers
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    //return RedirectToAction("Login", "Account");
+                   
                     await UserManager.AddToRoleAsync(user.Id, "user");
                     return RedirectToAction("Login", "Account");
                 }

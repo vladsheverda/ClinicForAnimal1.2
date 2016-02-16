@@ -3,26 +3,26 @@
 @{
     ViewBag.Title = "ShowInfoDoctor";
 }
+<head>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <ul class="nav navbar-nav">
-                    <li> @Html.ActionLink("Главаная страница", "Index", "Account")</li>
+                    <li>@Html.ActionLink("Календарь", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
+                    <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
+                    <li>@Html.ActionLink("Регистрация", "Register", "Account")</li>
+                    <li>@Html.ActionLink("Войти в свой аккаунт", "Login", "Account")</li>
                 </ul>
             </div>
-            <div class="navbar-collapse collapse">
-
-            </div>
         </div>
-    </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-
-    @*@RenderSection("scripts", required: false)*@
+    </div>>
 
 
-    <h2>ShowInfoDoctor</h2>
 
     <table class="table">
         @*<tr>

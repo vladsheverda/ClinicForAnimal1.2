@@ -16,7 +16,7 @@ namespace ClinicForAnimal1._2.Controllers
     public class AccountController : Controller
     {
         // GET: Account
-        [Authorize]
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();

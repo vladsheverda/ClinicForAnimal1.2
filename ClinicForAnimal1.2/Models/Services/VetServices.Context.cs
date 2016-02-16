@@ -9,10 +9,8 @@
 
 namespace ClinicForAnimal1._2.Models.Services
 {
-    using System;
     using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    
+
     public partial class VerServices : DbContext
     {
         public VerServices()

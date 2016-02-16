@@ -35,7 +35,7 @@ namespace ClinicForAnimal1._2.Controllers
             }
             return View(veterinarianService);
         }
-
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -124,5 +124,18 @@ namespace ClinicForAnimal1._2.Controllers
             List<VeterinarianService> info = db.VeterinarianServices.ToList();
             return View(info);
         }
+
+        [AllowAnonymous]
+        public ActionResult Categories(string category)
+        {
+            Categories info = new Categories
+            {
+                Services = db.VeterinarianServices.Where(p => category == null || p.Category == category),
+                CurrentCategory = category
+            };
+            return View(info);
+        }
     }
 }
+
+

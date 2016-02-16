@@ -301,6 +301,7 @@
     <Compile Include="Models\ApplicationUserManager.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\Services\Categories.cs" />
     <Compile Include="Models\Services\VeterinarianService.cs">
       <DependentUpon>VetServices.tt</DependentUpon>
     </Compile>
@@ -327,6 +328,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Bubble.png" />
+    <Content Include="Content\ContentToCategories.css" />
     <Content Include="Content\fullcalendar.css" />
     <Content Include="Content\fullcalendar.min.css" />
     <Content Include="Content\fullcalendar.print.css" />
@@ -570,6 +572,7 @@
     <Content Include="Views\VeterinarianServices\Edit.cshtml" />
     <Content Include="Views\VeterinarianServices\Index.cshtml" />
     <Content Include="Views\VeterinarianServices\ShowCategory.cshtml" />
+    <Content Include="Views\VeterinarianServices\Categories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

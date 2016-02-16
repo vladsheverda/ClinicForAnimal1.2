@@ -7,21 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClinicForAnimal1._2.Models.Services.Category
+namespace ClinicForAnimal1._2.Models.Services
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CategoryForServices : DbContext
+    public partial class VerServices : DbContext
     {
-        public CategoryForServices()
-            : base("name=CategoryForServices")
+        public VerServices()
+            : base("name=VerServices")
         {
         }
     
-        public virtual DbSet<CategoryService> CategoryServices { get; set; }
-
-        public System.Data.Entity.DbSet<ClinicForAnimal1._2.Models.Services.Services.VeterinarianService> VeterinarianServices { get; set; }
+        public virtual DbSet<VeterinarianService> VeterinarianServices { get; set; }
     }
 }

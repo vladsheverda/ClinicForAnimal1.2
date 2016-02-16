@@ -233,7 +233,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CategoryServicesController.cs" />
     <Compile Include="Controllers\DoctorInfoController.cs" />
     <Compile Include="Controllers\VeterinarianServicesController.cs" />
     <Compile Include="DiaryContext.Context.cs">
@@ -283,7 +282,6 @@
     <Compile Include="Models\EditRoleModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
-    <Compile Include="Controllers\SecretController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -303,41 +301,23 @@
     <Compile Include="Models\ApplicationUserManager.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
-    <Compile Include="Models\Services\Category\Category.Context.cs">
+    <Compile Include="Models\Services\VeterinarianService.cs">
+      <DependentUpon>VetServices.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Services\VetServices.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Category.Context.tt</DependentUpon>
+      <DependentUpon>VetServices.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Services\Category\Category.cs">
+    <Compile Include="Models\Services\VetServices.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Category.tt</DependentUpon>
+      <DependentUpon>VetServices.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Services\Category\Category.Designer.cs">
+    <Compile Include="Models\Services\VetServices.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Category.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Services\Category\CategoryService.cs">
-      <DependentUpon>Category.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Services\Services\VeterinarianService.cs">
-      <DependentUpon>VeterinarianServices.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Services\Services\VeterinarianServices.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VeterinarianServices.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Services\Services\VeterinarianServices.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VeterinarianServices.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Services\Services\VeterinarianServices.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VeterinarianServices.edmx</DependentUpon>
+      <DependentUpon>VetServices.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -430,25 +410,15 @@
       <DependentUpon>DoctorInfo.edmx</DependentUpon>
       <LastGenOutput>DoctorInfo.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Services\Category\Category.Context.tt">
+    <Content Include="Models\Services\VetServices.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Category.edmx</DependentUpon>
-      <LastGenOutput>Category.Context.cs</LastGenOutput>
+      <DependentUpon>VetServices.edmx</DependentUpon>
+      <LastGenOutput>VetServices.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Services\Category\Category.tt">
+    <Content Include="Models\Services\VetServices.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Category.edmx</DependentUpon>
-      <LastGenOutput>Category.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Services\Services\VeterinarianServices.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VeterinarianServices.edmx</DependentUpon>
-      <LastGenOutput>VeterinarianServices.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Services\Services\VeterinarianServices.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VeterinarianServices.edmx</DependentUpon>
-      <LastGenOutput>VeterinarianServices.cs</LastGenOutput>
+      <DependentUpon>VetServices.edmx</DependentUpon>
+      <LastGenOutput>VetServices.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -475,19 +445,12 @@
     <Content Include="Models\DoctorInfo\DoctorInfo.edmx.diagram">
       <DependentUpon>DoctorInfo.edmx</DependentUpon>
     </Content>
-    <EntityDeploy Include="Models\Services\Category\Category.edmx">
+    <EntityDeploy Include="Models\Services\VetServices.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Category.Designer.cs</LastGenOutput>
+      <LastGenOutput>VetServices.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Services\Category\Category.edmx.diagram">
-      <DependentUpon>Category.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\Services\Services\VeterinarianServices.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>VeterinarianServices.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Services\Services\VeterinarianServices.edmx.diagram">
-      <DependentUpon>VeterinarianServices.edmx</DependentUpon>
+    <Content Include="Models\Services\VetServices.edmx.diagram">
+      <DependentUpon>VetServices.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\fullcalendar.js" />
@@ -606,16 +569,10 @@
     <Content Include="Views\VeterinarianServices\Details.cshtml" />
     <Content Include="Views\VeterinarianServices\Edit.cshtml" />
     <Content Include="Views\VeterinarianServices\Index.cshtml" />
-    <Content Include="Views\CategoryServices\Create.cshtml" />
-    <Content Include="Views\CategoryServices\Delete.cshtml" />
-    <Content Include="Views\CategoryServices\Details.cshtml" />
-    <Content Include="Views\CategoryServices\Edit.cshtml" />
-    <Content Include="Views\CategoryServices\Index.cshtml" />
     <Content Include="Views\VeterinarianServices\ShowCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Secret\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

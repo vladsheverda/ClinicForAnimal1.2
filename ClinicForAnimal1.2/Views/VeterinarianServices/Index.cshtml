@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ClinicForAnimal1._2.Models.Services.Services.VeterinarianService>
+﻿@model IEnumerable<ClinicForAnimal1._2.Models.Services.VeterinarianService>
 
 @{
     Layout = null;
@@ -10,8 +10,6 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <p>
@@ -29,7 +27,7 @@
                 @Html.DisplayNameFor(model => model.Cost)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdServices)
+                @Html.DisplayNameFor(model => model.Category)
             </th>
             <th></th>
         </tr>
@@ -46,7 +44,7 @@
                 @Html.DisplayFor(modelItem => item.Cost)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdServices)
+                @Html.DisplayFor(modelItem => item.Category)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
@@ -57,7 +55,5 @@
     }
     
     </table>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>

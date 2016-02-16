@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ClinicForAnimal1._2.Models.Services.Services.VeterinarianService>
+﻿@model IEnumerable<ClinicForAnimal1._2.Models.Services.VeterinarianService>
 
 @{
     Layout = null;
@@ -14,18 +14,6 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <ul class="nav navbar-nav">
-                    <li> @Html.ActionLink("Главаная страница", "Index", "Account")</li>
-                </ul>
-            </div>
-            <div class="navbar-collapse collapse">
-
-            </div>
-        </div>
-    </div>
     <table class="table">
         <tr>
             <th>
@@ -38,7 +26,7 @@
                 @Html.DisplayNameFor(model => model.Cost)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdServices)
+                @Html.DisplayNameFor(model => model.Category)
             </th>
             <th></th>
         </tr>
@@ -55,7 +43,7 @@
                 @Html.DisplayFor(modelItem => item.Cost)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdServices)
+                @Html.DisplayFor(modelItem => item.Category)
             </td>
         </tr>
     }

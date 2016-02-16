@@ -1,22 +1,26 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
-using ClinicForAnimal1._2.Models.Services.Services;
-using System.Collections.Generic;
+using ClinicForAnimal1._2.Models.Services;
 
 namespace ClinicForAnimal1._2.Controllers
 {
-    [Authorize(Roles ="admin")]
+    [Authorize(Roles = "admin")]
     public class VeterinarianServicesController : Controller
     {
-        private VeterinarianServicesEntities db = new VeterinarianServicesEntities();
+        private VerServices db = new VerServices();
 
         // GET: VeterinarianServices
         public ActionResult Index()
         {
             return View(db.VeterinarianServices.ToList());
         }
+
 
         public ActionResult Details(int? id)
         {
@@ -37,10 +41,9 @@ namespace ClinicForAnimal1._2.Controllers
             return View();
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,NameOfVeterinaryServices,UnitOfMeasurement,Cost,IdServices")] VeterinarianService veterinarianService)
+        public ActionResult Create([Bind(Include = "Id,NameOfVeterinaryServices,UnitOfMeasurement,Cost,Category")] VeterinarianService veterinarianService)
         {
             if (ModelState.IsValid)
             {
@@ -48,8 +51,10 @@ namespace ClinicForAnimal1._2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(veterinarianService);
         }
+
 
         public ActionResult Edit(int? id)
         {
@@ -65,9 +70,10 @@ namespace ClinicForAnimal1._2.Controllers
             return View(veterinarianService);
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,NameOfVeterinaryServices,UnitOfMeasurement,Cost,IdServices")] VeterinarianService veterinarianService)
+        public ActionResult Edit([Bind(Include = "Id,NameOfVeterinaryServices,UnitOfMeasurement,Cost,Category")] VeterinarianService veterinarianService)
         {
             if (ModelState.IsValid)
             {
@@ -77,6 +83,7 @@ namespace ClinicForAnimal1._2.Controllers
             }
             return View(veterinarianService);
         }
+
 
         public ActionResult Delete(int? id)
         {

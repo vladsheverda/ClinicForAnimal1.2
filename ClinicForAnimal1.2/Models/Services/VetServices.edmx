@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VeterinarianServices.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="VeterinarServices.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="VeterinarianServices">
           <Key>
             <PropertyRef Name="Id" />
@@ -13,16 +13,16 @@
           <Property Name="NameOfVeterinaryServices" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="UnitOfMeasurement" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Cost" Type="int" Nullable="false" />
-          <Property Name="IdServices" Type="int" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <EntityContainer Name="VeterinarianServicesStoreContainer">
+        <EntityContainer Name="VeterinarServicesStoreContainer">
           <EntitySet Name="VeterinarianServices" EntityType="Self.VeterinarianServices" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="VeterinarianServices" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="VeterinarServices" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="VeterinarianService">
           <Key>
             <PropertyRef Name="Id" />
@@ -31,9 +31,9 @@
           <Property Name="NameOfVeterinaryServices" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UnitOfMeasurement" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Cost" Type="Int32" Nullable="false" />
-          <Property Name="IdServices" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="VeterinarianServicesEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="VerServices" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="VeterinarianServices" EntityType="Self.VeterinarianService" />
         </EntityContainer>
       </Schema>
@@ -41,15 +41,15 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="VeterinarianServicesStoreContainer" CdmEntityContainer="VeterinarianServicesEntities">
+        <EntityContainerMapping StorageEntityContainer="VeterinarServicesStoreContainer" CdmEntityContainer="VerServices">
           <EntitySetMapping Name="VeterinarianServices">
-            <EntityTypeMapping TypeName="VeterinarianServices.VeterinarianService">
+            <EntityTypeMapping TypeName="VeterinarServices.VeterinarianService">
               <MappingFragment StoreEntitySet="VeterinarianServices">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="NameOfVeterinaryServices" ColumnName="NameOfVeterinaryServices" />
                 <ScalarProperty Name="UnitOfMeasurement" ColumnName="UnitOfMeasurement" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="IdServices" ColumnName="IdServices" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

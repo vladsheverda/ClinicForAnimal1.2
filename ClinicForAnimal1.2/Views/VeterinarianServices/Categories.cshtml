@@ -7,23 +7,24 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/Content/ContentToCategories.css" type="text/css" rel="stylesheet" />
+
 </head>
 <body>
     <div id="header">
         <div class="title">Clinic</div>
     </div>
     <div id="categories">
-        We will put something useful here later
+        @{
+            Html.RenderAction("Menu", "Nav");
+        }
+
     </div>
     <div id="content">
         @foreach (var item in Model.Services)
         {
-            <table>
-                <tr>
-                    <td>@item.NameOfVeterinaryServices</td>
-                </tr>
-            </table>
+            Html.RenderPartial("ServicesSummary", item);
         }
-</div>
+    </div>
+
 </body>
 </html> 

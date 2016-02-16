@@ -234,6 +234,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DoctorInfoController.cs" />
+    <Compile Include="Controllers\ExtraController\NavController.cs" />
     <Compile Include="Controllers\VeterinarianServicesController.cs" />
     <Compile Include="DiaryContext.Context.cs">
       <AutoGen>True</AutoGen>
@@ -573,6 +574,8 @@
     <Content Include="Views\VeterinarianServices\Index.cshtml" />
     <Content Include="Views\VeterinarianServices\ShowCategory.cshtml" />
     <Content Include="Views\VeterinarianServices\Categories.cshtml" />
+    <Content Include="Views\Nav\Menu.cshtml" />
+    <Content Include="Views\Shared\ServicesSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

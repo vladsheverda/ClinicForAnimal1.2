@@ -61,7 +61,7 @@ namespace ClinicForAnimal1._2.Controllers
                     {
                         IsPersistent = true
                     }, claim);
-                    if (String.IsNullOrEmpty(returnUrl))
+                    if (string.IsNullOrEmpty(returnUrl))
                         return RedirectToAction("Index","Account");
                     return Redirect(returnUrl);
                 }
@@ -91,7 +91,6 @@ namespace ClinicForAnimal1._2.Controllers
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                   
                     await UserManager.AddToRoleAsync(user.Id, "user");
                     return RedirectToAction("Login", "Account");
                 }

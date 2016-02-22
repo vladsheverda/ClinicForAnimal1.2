@@ -53,8 +53,6 @@ namespace ClinicForAnimal1._2.Controllers
             {
                 HttpNotFound();
             }
-            //doctorInfo.DoctorInfoForAdmin.Remove(doc);
-            //doctorInfo.SaveChanges();
             doctorInfo.Entry(doc).State = EntityState.Deleted;
             doctorInfo.SaveChanges();
             return View();

@@ -1,52 +1,56 @@
 ﻿@using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "Index";
+    //Layout = "~/Views/Shared/_LoginPartial.cshtml";
 }
 <head>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
 </head>
 <body>
-
-    @*@if (Request.IsAuthenticated)
-    {
-        using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    <p>
+        @*@if (Request.IsAuthenticated)
         {
-            @Html.AntiForgeryToken()
+            using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+            {
+                @Html.AntiForgeryToken()
 
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    @Html.ActionLink("Здравствуйте, " + User.Identity.GetUserName() + "!", "Index", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
-                </li>
-                <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
-            </ul>
-        }
-    }
-    else
-    {
-        <ul class="nav navbar-nav navbar-right">
-            <li>@Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-            <li>@Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-        </ul>
-    }*@
-
-
-
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Calendar", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
-                    <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
-                    <li>@Html.ActionLink("Регистрация", "Register", "Account")</li>
-                    <li>@Html.ActionLink("Войти в свой аккаунт","Login","Account")</li>
-                    <li>@Html.ActionLink("Выйти из аккаунта", "Logout","Account")</li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        @Html.ActionLink("Здравствуйте, " + User.Identity.GetUserName() + "!", "Index", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+                    </li>
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
                 </ul>
+            }
+        }
+        else
+        {
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            </ul>
+        }*@
+
+    </p>
+    <br />
+    <p>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Calendar", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
+                        <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
+                        <li>@Html.ActionLink("Отзывы", "Index", "Reviews")</li>
+                        @*<li>@Html.ActionLink("Регистрация", "Register", "Account")</li>*@
+                        @*<li>@Html.ActionLink("Войти в свой аккаунт","Login","Account")</li>
+                            <li>@Html.ActionLink("Выйти из аккаунта", "Logout","Account")</li>*@
+
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+    </p>
     <h2>Информация о ветклинике</h2>
     <p>
         Когда домашний питомец болен, все проблемы отходят на второй план,
@@ -67,6 +71,6 @@
         И, кстати, кроме лечения собак и кошек, к нам можно обратиться с целью лечения птиц, грызунов, приматов, пресмыкающихся и земноводных!
     </p>
     <p><img src="~/Content/images.png" alt="котик" /></p>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
 </body>

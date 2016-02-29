@@ -235,6 +235,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DoctorInfoController.cs" />
     <Compile Include="Controllers\ExtraController\NavController.cs" />
+    <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Controllers\VeterinarianServicesController.cs" />
     <Compile Include="DiaryContext.Context.cs">
       <AutoGen>True</AutoGen>
@@ -302,6 +303,24 @@
     <Compile Include="Models\ApplicationUserManager.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\Reviews\Review.cs">
+      <DependentUpon>ReviewsForPerson.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reviews\ReviewsForPerson.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReviewsForPerson.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reviews\ReviewsForPerson.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReviewsForPerson.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reviews\ReviewsForPerson.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReviewsForPerson.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Services\Categories.cs" />
     <Compile Include="Models\Services\VeterinarianService.cs">
       <DependentUpon>VetServices.tt</DependentUpon>
@@ -413,6 +432,16 @@
       <DependentUpon>DoctorInfo.edmx</DependentUpon>
       <LastGenOutput>DoctorInfo.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Reviews\ReviewsForPerson.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ReviewsForPerson.edmx</DependentUpon>
+      <LastGenOutput>ReviewsForPerson.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Reviews\ReviewsForPerson.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ReviewsForPerson.edmx</DependentUpon>
+      <LastGenOutput>ReviewsForPerson.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\Services\VetServices.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VetServices.edmx</DependentUpon>
@@ -454,6 +483,13 @@
     </EntityDeploy>
     <Content Include="Models\Services\VetServices.edmx.diagram">
       <DependentUpon>VetServices.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Reviews\ReviewsForPerson.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ReviewsForPerson.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Reviews\ReviewsForPerson.edmx.diagram">
+      <DependentUpon>ReviewsForPerson.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\fullcalendar.js" />
@@ -576,9 +612,15 @@
     <Content Include="Views\VeterinarianServices\Categories.cshtml" />
     <Content Include="Views\Nav\Menu.cshtml" />
     <Content Include="Views\Shared\ServicesSummary.cshtml" />
+    <Content Include="Views\Reviews\Create.cshtml" />
+    <Content Include="Views\Reviews\Delete.cshtml" />
+    <Content Include="Views\Reviews\Details.cshtml" />
+    <Content Include="Views\Reviews\Edit.cshtml" />
+    <Content Include="Views\Reviews\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Review\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

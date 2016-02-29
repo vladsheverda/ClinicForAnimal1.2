@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ClinicForAnimal1._2.Models.Reviews.Review>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <p>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Calendar", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
+                        <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
+                        <li>@Html.ActionLink("Отзывы", "Index", "Reviews")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </p>
+    <br />
+    <p>
+        @Html.ActionLink("Добавить отзыв", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.NameOfPatient)*@
+                @Html.Label("Имя")
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Review1)*@
+                @Html.Label("Отзыв")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameOfPatient)
+                </td>
+                <td style="width:100px;">
+                    @Html.DisplayFor(modelItem => item.Review1)
+                </td>
+            </tr>
+        }
+    </table>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

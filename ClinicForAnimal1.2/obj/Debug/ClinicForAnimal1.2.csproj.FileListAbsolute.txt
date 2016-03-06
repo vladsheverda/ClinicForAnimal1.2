@@ -252,7 +252,6 @@ C:\Users\Vlad\Documents\Visual Studio 2015\Projects\Новая папка\отз
 C:\Users\Vlad\Documents\Visual Studio 2015\Projects\Новая папка\отзывы\ClinicForAnimal1.2\ClinicForAnimal1.2\bin\ru\System.Web.WebPages.resources.dll
 C:\Users\Vlad\Documents\Visual Studio 2015\Projects\Новая папка\отзывы\ClinicForAnimal1.2\ClinicForAnimal1.2\bin\ru\System.Web.WebPages.Deployment.resources.dll
 C:\Users\Vlad\Documents\Visual Studio 2015\Projects\Новая папка\отзывы\ClinicForAnimal1.2\ClinicForAnimal1.2\bin\ru\System.Web.WebPages.Razor.resources.dll
-C:\Users\Vlad\Documents\Visual Studio 2015\Projects\Новая папка\отзывы\ClinicForAnimal1.2\ClinicForAnimal1.2\obj\Debug\ClinicForAnimal1.2.csprojResolveAssemblyReference.cache
 C:\Users\Vlad\Documents\Visual Studio 2015\Projects\Новая папка\отзывы\ClinicForAnimal1.2\ClinicForAnimal1.2\obj\Debug\ClinicForAnimal1._2.Migrations.InitialCreate.resources
 C:\Users\Vlad\Documents\Visual Studio 2015\Projects\Новая папка\отзывы\ClinicForAnimal1.2\ClinicForAnimal1.2\obj\Debug\ClinicForAnimal1._2.Migrations.DataMigration.resources
 C:\Users\Vlad\Documents\Visual Studio 2015\Projects\Новая папка\отзывы\ClinicForAnimal1.2\ClinicForAnimal1.2\obj\Debug\ClinicForAnimal1._2.Migrations.DataMigration1.resources

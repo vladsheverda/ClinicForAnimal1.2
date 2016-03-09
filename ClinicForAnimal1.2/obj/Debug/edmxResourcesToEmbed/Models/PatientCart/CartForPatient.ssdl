@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CartPatient.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CartForPatient">
+    <Key>
+      <PropertyRef Name="IdCaseRecord" />
+    </Key>
+    <Property Name="IdCaseRecord" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Diagnosis" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Treatment" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="IdPatient" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <Association Name="FK__CartForPa__IdPat__74794A92">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="CartForPatient" Type="Self.CartForPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartForPatient">
+        <PropertyRef Name="IdPatient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CartPatientStoreContainer">
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CartForPatient" EntityType="Self.CartForPatient" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CartForPa__IdPat__74794A92" Association="Self.FK__CartForPa__IdPat__74794A92">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="CartForPatient" EntitySet="CartForPatient" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

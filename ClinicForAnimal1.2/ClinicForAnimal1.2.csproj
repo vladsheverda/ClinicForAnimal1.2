@@ -234,9 +234,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartForPatients1Controller.cs" />
     <Compile Include="Controllers\DoctorInfoController.cs" />
     <Compile Include="Controllers\ExtraController\NavController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
+    <Compile Include="Controllers\test\TestController.cs" />
     <Compile Include="Controllers\VeterinarianServicesController.cs" />
     <Compile Include="DiaryContext.Context.cs">
       <AutoGen>True</AutoGen>
@@ -256,6 +258,10 @@
     <Compile Include="Migrations\201602052110250_DataMigration2.cs" />
     <Compile Include="Migrations\201602052110250_DataMigration2.Designer.cs">
       <DependentUpon>201602052110250_DataMigration2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603091147334_DataMigration3.cs" />
+    <Compile Include="Migrations\201603091147334_DataMigration3.Designer.cs">
+      <DependentUpon>201603091147334_DataMigration3.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Calendar\DiaryEvent.cs" />
     <Compile Include="Models\Calendar\Shared.cs" />
@@ -301,8 +307,28 @@
     <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ApplicationRoleManager.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\ApplicationUserManager.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\PatientCart\AspNetUser.cs">
+      <DependentUpon>CartForPatient.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PatientCart\CartForPatient.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CartForPatient.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PatientCart\CartForPatient.cs">
+      <DependentUpon>CartForPatient.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PatientCart\CartForPatient.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CartForPatient.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PatientCart\CartForPatient1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CartForPatient.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\Reviews\Review.cs">
       <DependentUpon>ReviewsForPerson.tt</DependentUpon>
@@ -340,6 +366,26 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>VetServices.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TestWithCart\CartContext.cs" />
+    <Compile Include="Models\TestWithCart\PatientCart.cs" />
+    <Compile Include="Models\Users\AspNetUser.cs">
+      <DependentUpon>Users.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users\Users.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Users.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users\Users.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Users.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users\Users.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Users.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -433,6 +479,16 @@
       <DependentUpon>DoctorInfo.edmx</DependentUpon>
       <LastGenOutput>DoctorInfo.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\PatientCart\CartForPatient.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CartForPatient.edmx</DependentUpon>
+      <LastGenOutput>CartForPatient.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PatientCart\CartForPatient.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CartForPatient.edmx</DependentUpon>
+      <LastGenOutput>CartForPatient1.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\Reviews\ReviewsForPerson.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ReviewsForPerson.edmx</DependentUpon>
@@ -452,6 +508,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VetServices.edmx</DependentUpon>
       <LastGenOutput>VetServices.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Users\Users.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Users.edmx</DependentUpon>
+      <LastGenOutput>Users.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Users\Users.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Users.edmx</DependentUpon>
+      <LastGenOutput>Users.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -491,6 +557,20 @@
     </EntityDeploy>
     <Content Include="Models\Reviews\ReviewsForPerson.edmx.diagram">
       <DependentUpon>ReviewsForPerson.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Users\Users.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Users.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Users\Users.edmx.diagram">
+      <DependentUpon>Users.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\PatientCart\CartForPatient.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CartForPatient.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\PatientCart\CartForPatient.edmx.diagram">
+      <DependentUpon>CartForPatient.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\fullcalendar.js" />
@@ -621,6 +701,13 @@
     <Content Include="Views\Account\DisplayEmail.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Error.cshtml" />
+    <Content Include="Views\CartForPatients1\Create.cshtml" />
+    <Content Include="Views\CartForPatients1\Delete.cshtml" />
+    <Content Include="Views\CartForPatients1\Edit.cshtml" />
+    <Content Include="Views\CartForPatients1\Index.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\CartForPatients1\Search.cshtml" />
+    <Content Include="Views\CartForPatients1\InfoAboutPatient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -644,6 +731,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602052110250_DataMigration2.resx">
       <DependentUpon>201602052110250_DataMigration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603091147334_DataMigration3.resx">
+      <DependentUpon>201603091147334_DataMigration3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

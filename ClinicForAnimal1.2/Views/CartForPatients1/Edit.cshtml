@@ -1,0 +1,75 @@
+﻿@model ClinicForAnimal1._2.Models.PatientCart.CartForPatient
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            <h4>Карточка пациента</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.IdCaseRecord)
+    
+            <div class="form-group">
+                @Html.Label("Диагноз")
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Diagnosis, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Diagnosis, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.Label("Лечение")
+                <div class="col-md-10">
+                    @foreach (var item in ViewData.ModelMetadata.Properties)
+                    {
+                        <div class="form-group">
+                            @if (item.PropertyName == "Treatment")
+                            {
+
+                                @Html.TextArea(item.PropertyName, null,
+                                new { @class = "form-control", rows = 5, cols = 75 })
+                            }
+                        </div>
+                    }
+
+                    @Html.ValidationMessageFor(model => model.Treatment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.Label("Имя пациента")
+                <div class="col-md-10">
+                @Html.DropDownListFor(model => model.IdPatient, ViewBag.Users as SelectList)
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Сохранить" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Вернуться к списку с карточками", "Index")
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

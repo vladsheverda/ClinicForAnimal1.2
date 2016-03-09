@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data.Entity;
+using ClinicForAnimal1._2.Models.DoctorInfo;
 
 namespace ClinicForAnimal1._2.Models
 {
@@ -22,6 +19,6 @@ namespace ClinicForAnimal1._2.Models
 
         public DbSet<EditRoleModel> EditRoleModels { get; set; }
 
-        public DbSet<DoctorInfo.DoctorInfoForAdmin> DoctorInfoForAdmins { get; set; }
+        public DbSet<DoctorInfoForAdmin> DoctorInfoForAdmins { get; set; }
     }
 }

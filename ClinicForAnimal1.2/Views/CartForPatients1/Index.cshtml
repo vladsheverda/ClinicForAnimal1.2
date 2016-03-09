@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ClinicForAnimal1._2.Models.PatientCart.CartForPatient>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Создать новую карточку", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.Label("Диагноз больного")
+            </th>
+            <th>
+                @Html.Label("Лечение")
+            </th>
+            <th>
+                @Html.Label("Имя пользователя")
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diagnosis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Treatment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AspNetUser.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("Изменить карточку", "Edit", new { id=item.IdCaseRecord }) |
+    
+                @Html.ActionLink("Удалить", "Delete", new { id=item.IdCaseRecord })
+            </td>
+        </tr>
+    }
+    
+    </table>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

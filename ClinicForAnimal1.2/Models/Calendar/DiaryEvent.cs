@@ -11,16 +11,16 @@ namespace ClinicForAnimal1_2.Models
     public class DiaryEvent
     {
 
-        public int ID;
-        public string Title;
-        public int SomeImportantKeyID;
-        public string StartDateString;
-        public string EndDateString;
-        public string StatusString;
-        public string StatusColor;
-        public string ClassName;
+        public int ID { get; set; }
+        public string Title { get; set; }
+        public int SomeImportantKeyID { get; set; }
+        public string StartDateString { get; set; }
+        public string EndDateString { get; set; }
+        public string StatusString { get; set; }
+        public string StatusColor { get; set; }
+        public string ClassName { get; set; }
 
-
+        
         public static List<DiaryEvent> LoadAllAppointmentsInDateRange(double start, double end)
         {
             var fromDate = ConvertFromUnixTimestamp(start);
@@ -36,7 +36,7 @@ namespace ClinicForAnimal1_2.Models
                     DiaryEvent rec = new DiaryEvent();
                     rec.ID = item.Id;
                     rec.SomeImportantKeyID = item.SomeImportantKey;
-                    rec.StartDateString = item.DateTimeScheduled.ToString("s"); 
+                    rec.StartDateString = item.DateTimeScheduled.ToString("s");
                     rec.EndDateString = item.DateTimeScheduled.AddMinutes(item.AppointmentLength).ToString("s");
                     rec.Title = item.Title + " - " + item.AppointmentLength.ToString() + " mins";
                     rec.StatusString = Enums.GetName((AppointmentStatus)item.StatusEnum);
@@ -69,10 +69,10 @@ namespace ClinicForAnimal1_2.Models
                 foreach (var item in rslt)
                 {
                     DiaryEvent rec = new DiaryEvent();
-                    rec.ID = i; 
+                    rec.ID = i;
                     rec.SomeImportantKeyID = -1;
                     string StringDate = string.Format("{0:yyyy-MM-dd}", item.DateTimeScheduled);
-                    rec.StartDateString = StringDate + "T00:00:00"; 
+                    rec.StartDateString = StringDate + "T00:00:00";
                     rec.EndDateString = StringDate + "T23:59:59";
                     rec.Title = "Booked: " + item.Count.ToString();
                     result.Add(rec);
@@ -86,15 +86,15 @@ namespace ClinicForAnimal1_2.Models
 
         public static void UpdateDiaryEvent(int id, string NewEventStart, string NewEventEnd)
         {
-            
+
             using (CalendarContext ent = new CalendarContext())
             {
                 var rec = ent.AppointmentDiaries.FirstOrDefault(s => s.Id == id);
                 if (rec != null)
                 {
-                    DateTime DateTimeStart = DateTime.Parse(NewEventStart, null, DateTimeStyles.RoundtripKind).ToLocalTime(); 
+                    DateTime DateTimeStart = DateTime.Parse(NewEventStart, null, DateTimeStyles.RoundtripKind).ToLocalTime();
                     rec.DateTimeScheduled = DateTimeStart;
-                    if (!String.IsNullOrEmpty(NewEventEnd))
+                    if (!string.IsNullOrEmpty(NewEventEnd))
                     {
                         TimeSpan span = DateTime.Parse(NewEventEnd, null, DateTimeStyles.RoundtripKind).ToLocalTime() - DateTimeStart;
                         rec.AppointmentLength = Convert.ToInt32(span.TotalMinutes);

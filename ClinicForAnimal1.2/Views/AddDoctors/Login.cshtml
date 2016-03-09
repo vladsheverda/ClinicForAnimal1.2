@@ -1,0 +1,46 @@
+﻿@model ClinicForAnimal1._2.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+    //Layout = "~/Views/Shared/_LoginPartial.cshtml";
+}
+
+<h2>Вход на сайт</h2>
+
+<head>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Главная страница", "Index", "Account")</li>
+                    <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
+                    <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
+                    <li>@Html.ActionLink("Войти в свой аккаунт", "Login", "Account")</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>*@
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            @Html.ValidationSummary()
+            <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+            <p>
+                <label>Email</label><br />
+                @Html.EditorFor(x => x.Email)
+            </p>
+            <p>
+                <label>Пароль</label><br />
+                @Html.EditorFor(x => x.Password)
+            </p>
+            <p><button type="submit">Войти</button></p>
+        </div>
+    }
+</body>

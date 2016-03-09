@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>InfoForAdmin</title>
+</head>
+<body>
+    <h4>Администрирование</h4>
+    <div> 
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Главная страница", "Index", "Account")</li>
+                        <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
+                        <li>@Html.ActionLink("Изменить услуги и цена", "Edit", "VeterinarianServices")</li>
+                        <li>@Html.ActionLink("Добавить нового врача", "Register", "AddDoctors")</li>
+                        <li>@Html.ActionLink("Добавить новуб роль", "Create", "Roles")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

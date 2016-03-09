@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ClinicForAnimal1._2.Models.PatientCart.CartForPatient>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Diagnosis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Treatment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.Diagnosis</th>
+            <th>@item.Treatment</th>
+            <th>@item.AspNetUser.UserName</th>
+        </tr>
+
+    }
+</table>

@@ -1,6 +1,4 @@
-﻿
-
-@model IEnumerable<ClinicForAnimal1._2.Models.Users.AspNetUser>
+﻿@model List<ClinicForAnimal1._2.Models.Users.AspNetUser>
 
 
 <div id="searchresults">
@@ -11,7 +9,7 @@
             @foreach (var item in Model)
             {
                 <li>@item.Age</li>
-                <li>@item.UserName</li>
+                @*<li>@item.UserName</li>*@
             }
         </ul>
     }

@@ -4,17 +4,19 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ClinicForAnimal1._2.Models.PatientCart;
+using System.Collections.Generic;
+using ClinicForAnimal1._2.Models.Users;
 
 namespace ClinicForAnimal1._2.Controllers
 {
-
+    [Authorize(Roles ="doctor")]
     public class CartForPatients1Controller : Controller
     {
-        private PatientCart db = new PatientCart();
+        PatientCart db = new PatientCart();
         // GET: CartForPatients1
         public ActionResult Index()
-        { 
-            var a = db.CartForPatient.Include(c=>c.AspNetUser);
+        {
+            var a = db.CartForPatient.Include(c => c.AspNetUser);
             return View(a.ToList());
         }
 
@@ -98,24 +100,23 @@ namespace ClinicForAnimal1._2.Controllers
 
 
         [HttpPost]
-        public ActionResult Search(string user)
+        public ActionResult Search1(string user)
         {
-            var allinfo = db.AspNetUsers.Where(a => a.UserName.Contains(user)).ToList();
-            if (allinfo.Count<=0)
-            {
-                HttpNotFound();
-            }
-            return PartialView(allinfo);
+            //var allinfo = db.AspNetUsers.Where(a => a.UserName.Contains(user)).ToList();
+            //if (allinfo.Count<=0)
+            //{
+            //    HttpNotFound();
+            //}
+            //var info = db.CartForPatient.Include(c=>c.AspNetUser).Where(a => a.AspNetUser.Email.Contains(user));
+            var info = db.CartForPatient.Include(c => c.AspNetUser).Where(a => a.AspNetUser.Email.Contains(user));
+            //var b = db.CartForPatient.Where(c => c.AspNetUser.Email.Contains(user));
+            return PartialView(info.ToList());
         }
 
         public ActionResult InfoAboutPatient()
         {
             return View();
         }
-        #region
-      
-
-        #endregion
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -123,6 +124,10 @@ namespace ClinicForAnimal1._2.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult ShowUser()
+        {
+            return View();
         }
     }
 }

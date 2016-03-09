@@ -2,8 +2,8 @@
     ViewBag.Title = "InfoAboutPatient";
 }
 
-@*<div>
-    @using (Ajax.BeginForm("Search", new AjaxOptions { UpdateTargetId = "searchresults" }))
+<div>
+    @using (Ajax.BeginForm("Search1", new AjaxOptions { UpdateTargetId = "searchresults" }))
         {
         <input type="text" name="name" />
         <input type="submit" value="Поиск" />
@@ -13,18 +13,5 @@
     </div>
 </div>
 @Scripts.Render("~/scripts/jquery-1.10.2.min.js")
-@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")*@
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
 
-<input type="text" name="name" id="search" />
-<input type='button' id="submit" value='Поиск' />
-<div id="results"></div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#submit').click(function (e) {
-            e.preventDefault();
-            var name = $('#search').val();
-            name=encodeURIComponent(name);
-            $('#results').load('@Url.Action("Search", "CartForPatients1")?name='+name)
-        });
-    });
-</script>

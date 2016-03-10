@@ -84,7 +84,7 @@ namespace ClinicForAnimal1._2.Controllers
                 {
                     if (user.EmailConfirmed == true)
                     {
-                        //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         return RedirectToAction("Index");
                     }
                     else

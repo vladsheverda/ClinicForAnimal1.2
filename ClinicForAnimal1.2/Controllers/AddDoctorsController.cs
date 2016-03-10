@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace ClinicForAnimal1._2.Controllers
 {
-    //[Authorize(Roles ="admin")]
+    [Authorize(Roles = "admin")]
     public class AddDoctorsController : Controller
     {
         private ApplicationUserManager UserManager

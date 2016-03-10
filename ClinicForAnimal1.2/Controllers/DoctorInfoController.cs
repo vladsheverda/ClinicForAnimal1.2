@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace ClinicForAnimal1._2.Controllers
 {
-   //[Authorize(Roles ="admin")]
+    [Authorize(Roles = "admin")]
     public class DoctorInfoController : Controller
     {
         ClinicForAnimalEntities doctorInfo = new ClinicForAnimalEntities ();

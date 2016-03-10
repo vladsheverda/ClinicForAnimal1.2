@@ -5,7 +5,6 @@ using System.Net;
 using System.Web.Mvc;
 using ClinicForAnimal1._2.Models.PatientCart;
 using System.Collections.Generic;
-using ClinicForAnimal1._2.Models.Users;
 
 namespace ClinicForAnimal1._2.Controllers
 {
@@ -100,6 +99,8 @@ namespace ClinicForAnimal1._2.Controllers
 
 
         [HttpPost]
+
+
         public ActionResult Search1(string user)
         {
             //var allinfo = db.AspNetUsers.Where(a => a.UserName.Contains(user)).ToList();

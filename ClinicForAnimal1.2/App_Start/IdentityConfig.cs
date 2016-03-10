@@ -12,27 +12,7 @@ using System.Net;
 
 namespace ClinicForAnimal1._2
 {
-    public class EmailService : IIdentityMessageService
-    {
-        public Task SendAsync(IdentityMessage message)
-        {
-            var from = "sheverda.vlad@mail.ru";
-            var pass = "5340424vlad.Sh";
-
-            SmtpClient client = new SmtpClient("smtp.mail.ru", 25);
-
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential(from, pass);
-            client.EnableSsl = true;
-
-            var mail = new MailMessage(from, message.Destination);
-            mail.Subject = message.Subject;
-            mail.Body = message.Body;
-            mail.IsBodyHtml = true;
-            return client.SendMailAsync(mail);
-        }
-    }
+   
 
     public class SmsService : IIdentityMessageService
     {
@@ -99,7 +79,27 @@ namespace ClinicForAnimal1._2
             return manager;
         }
     }
+    public class EmailService : IIdentityMessageService
+    {
+        public Task SendAsync(IdentityMessage message)
+        {
+            var from = "rey-mycterio@mail.ru";
+            var pass = "qwerty123456";
 
+            SmtpClient client = new SmtpClient("smtp.mail.ru", 25);
+
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential(from, pass);
+            client.EnableSsl = true;
+
+            var mail = new MailMessage(from, message.Destination);
+            mail.Subject = message.Subject;
+            mail.Body = message.Body;
+            mail.IsBodyHtml = true;
+            return client.SendMailAsync(mail);
+        }
+    }
 
     public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
     {

@@ -23,6 +23,27 @@
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
+            minTime: '10:00',
+            maxTime: '19:00',
+
+            monthNames: ['Январь','Февраль','Март','Апрель','Май','οюнь','οюль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+            monthNamesShort: ['Янв.','Фев.','Март','Апр.','Май','οюнь','οюль','Авг.','Сент.','Окт.','Ноя.','Дек.'],
+            dayNames: ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],
+            dayNamesShort: ["ВС","ПН","ВТ","СР","ЧТ","ПТ","СБ"],
+            buttonText: {
+                prev: "&nbsp;&#9668;&nbsp;",
+                next: "&nbsp;&#9658;&nbsp;",
+                prevYear: "&nbsp;&lt;&lt;&nbsp;",
+                nextYear: "&nbsp;&gt;&gt;&nbsp;",
+                today: "Сегодня",
+                month: "Месяц",
+                week: "Неделя",
+                day: "День"
+            },
+            hiddenDays: [6,0],
+
+
+
             defaultView: 'agendaDay',
             editable: true,
             allDaySlot: false,
@@ -128,10 +149,10 @@
             success: function (response) {
                 if (response == 'True') {
                     $('#calendar').fullCalendar('refetchEvents');
-                    alert('New event saved!');
+                    alert('Запись прошла успешно!');
                 }
                 else {
-                    alert('Error, could not save event!');
+                    alert('Ошибка, заполните все данные!');
                 }
             }
         });
@@ -185,23 +206,23 @@
 
 
 <div id="popupEventForm" class="modal hide" style="display: none;">
-    <div class="modal-header"><h3>Add new event</h3></div>
+    <div class="modal-header"><h3>Запись на приём</h3></div>
     <div class="modal-body">
         <form id="EventForm" class="well">
             <input type="hidden" id="eventID">
-            <label>Event title</label>
+            <label>Цель визита</label>
             <input type="text" id="eventTitle" placeholder="Title here"><br />
-            <label>Scheduled date</label>
+            <label>Дата визита</label>
             <input type="text" id="eventDate"><br />
-            <label>Scheduled time</label>
+            <label>Время визита</label>
             <input type="text" id="eventTime"><br />
-            <label>Appointment length (minutes)</label>
+            <label>Время на приёме (минуты)</label>
             <input type="text" id="eventDuration" placeholder="15"><br />
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" id="btnPopupCancel" data-dismiss="modal" class="btn">Cancel</button>
-        <button type="button" id="btnPopupSave" data-dismiss="modal" class="btn btn-primary">Save event</button>
+        <button type="button" id="btnPopupCancel" data-dismiss="modal" class="btn">Отмена</button>
+        <button type="button" id="btnPopupSave" data-dismiss="modal" class="btn btn-primary">Записаться на приём</button>
     </div>
 </div>
 

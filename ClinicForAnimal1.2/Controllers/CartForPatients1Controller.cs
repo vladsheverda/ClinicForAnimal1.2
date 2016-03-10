@@ -108,9 +108,12 @@ namespace ClinicForAnimal1._2.Controllers
             //    HttpNotFound();
             //}
             //var info = db.CartForPatient.Include(c=>c.AspNetUser).Where(a => a.AspNetUser.Email.Contains(user));
-            var info = db.CartForPatient.Include(c => c.AspNetUser).Where(a => a.AspNetUser.Email.Contains(user));
+            List<CartForPatient> info = db.CartForPatient.Include(c => c.AspNetUser).Where(a => a.AspNetUser.Email.Contains(user)).ToList();
+            // List<CartForPatient> res = db.CartForPatient.Include(w=>w.AspNetUser).Select(c => c.AspNetUser).Where(e => e.UserName.Contains(user));
+            //List<CartForPatient> res = 
+            //var b = db.CartForPatient.Include(c => c.AspNetUser);
             //var b = db.CartForPatient.Where(c => c.AspNetUser.Email.Contains(user));
-            return PartialView(info.ToList());
+            return PartialView(info);
         }
 
         public ActionResult InfoAboutPatient()

@@ -46,7 +46,13 @@ namespace ClinicForAnimal1._2.Controllers
                 _userManager = value;
             }
         }
-
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
 
 
         // GET: Account
@@ -56,13 +62,7 @@ namespace ClinicForAnimal1._2.Controllers
             return View();
         }
 
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
+      
         //login
         #region
         [AllowAnonymous]
@@ -84,6 +84,7 @@ namespace ClinicForAnimal1._2.Controllers
                 {
                     if (user.EmailConfirmed == true)
                     {
+                     
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         return RedirectToAction("Index");
                     }
@@ -95,7 +96,7 @@ namespace ClinicForAnimal1._2.Controllers
                 else
                 {
                     ModelState.AddModelError("", "Неверный логин или пароль");
-                }
+                }              
             }
             return View(model);
         }
@@ -154,5 +155,13 @@ namespace ClinicForAnimal1._2.Controllers
             }
         }
         #endregion
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

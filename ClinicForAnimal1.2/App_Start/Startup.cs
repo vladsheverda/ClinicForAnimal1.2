@@ -27,7 +27,9 @@ namespace ClinicForAnimal1._2.Models
                 LoginPath = new PathString("/Account/Login"),
                
             });
-         
+
+            ApplicationSignInManager.RegisterAuth(app);
+
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
             //    ClientId = "171617413856-emgqr608r66asvqmn45okjs3l7lmggpq.apps.googleusercontent.com",

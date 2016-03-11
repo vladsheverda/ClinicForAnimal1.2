@@ -2,9 +2,6 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -53,12 +50,14 @@ namespace ClinicForAnimal1._2.Controllers
                 }
                 else
                 {
+                    user.EmailConfirmed = true;
                     ClaimsIdentity claim = await UserManager.CreateIdentityAsync(user,
                                             DefaultAuthenticationTypes.ApplicationCookie);
                     AuthenticationManager.SignOut();
                     AuthenticationManager.SignIn(new AuthenticationProperties
                     {
                         IsPersistent = true
+                        
                     }, claim);
                     if (string.IsNullOrEmpty(returnUrl))
                         return RedirectToAction("Index", "AddDoctors");
@@ -89,6 +88,7 @@ namespace ClinicForAnimal1._2.Controllers
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                   // user.EmailConfirmed = true;
                     await UserManager.AddToRoleAsync(user.Id, "doctor");
                     return RedirectToAction("Login", "AddDoctors");
                 }

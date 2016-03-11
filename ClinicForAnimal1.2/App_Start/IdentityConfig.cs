@@ -9,6 +9,7 @@ using Microsoft.Owin.Security;
 using ClinicForAnimal1._2.Models;
 using System.Net.Mail;
 using System.Net;
+using Owin;
 
 namespace ClinicForAnimal1._2
 {
@@ -116,6 +117,15 @@ namespace ClinicForAnimal1._2
         public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
         {
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
+        }
+
+
+
+        public static  void RegisterAuth(IAppBuilder app)
+        {
+            // other code
+            app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
+            // other code
         }
     }
 }

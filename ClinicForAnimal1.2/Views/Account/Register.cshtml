@@ -6,24 +6,25 @@
 <head>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <style>
-        p {
-            margin-top: 10em; /* Отступ сверху */
-            margin-bottom: 1em; /* Отступ снизу */
-        }
-    </style>
+    <link href="~/Content/Login.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Calendar", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
-                    <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
-                    <li>@Html.ActionLink("Войти в свой аккаунт", "Login", "Account")</li>
-                </ul>
+    <div class="login">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Главная страница","Index","Account")</li>
+                        <li>@Html.ActionLink("Календар", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
+                        <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
+                        <li>@Html.ActionLink("Отзывы", "Index", "Reviews")</li>
+                        <li>@Html.ActionLink("Администрирование", "InfoForAdmin", "Admin")</li>
+                        <li>@Html.ActionLink("Информация для врачей", "Index", "AddDoctors")</li>
+                        <li>@Html.ActionLink("Информация о карточки пациента", "InfoForPatient", "CartForPatient")</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -33,10 +34,10 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-       
+
         <div>
-            
-           
+
+
             @Html.ValidationSummary(false)
 
             <div>

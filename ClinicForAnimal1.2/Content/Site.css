@@ -33,3 +33,9 @@
 h2 {
 font-size: 20px !important;  /* !important added to force override of any other h2 in CSS*/
 }
+.navbar-nav li a:hover{
+    color:#2b2b2b !important;
+}
+#categories{
+    width: 250px !important;
+}

@@ -10,50 +10,74 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Login.css" rel="stylesheet" />
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NameOfVeterinaryServices)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UnitOfMeasurement)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NameOfVeterinaryServices)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UnitOfMeasurement)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-            </td>
-        </tr>
-    }
-    
-    </table>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Главная страница","Index", "Account")</li>
+                    <li>@Html.ActionLink("Календар", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
+                    <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
+                    <li>@Html.ActionLink("Отзывы", "Index", "Reviews")</li>
+                    <li>@Html.ActionLink("Администрирование", "InfoForAdmin", "Admin")</li>
+                    <li>@Html.ActionLink("Информация для врачей", "Index", "AddDoctors")</li>
+                    <li>@Html.ActionLink("Информация о карточки пациента", "InfoForPatient", "CartForPatient")</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="login">
+        <p>
+            @Html.ActionLink("Добавить новую услугу", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.Label("Название услуги")
+                </th>
+                <th>
+                    @Html.Label("Количество назначений")
+                </th>
+                <th>
+                    @Html.Label("Стоимость")
+                </th>
+                <th>
+                    @Html.Label("Операция")
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameOfVeterinaryServices)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UnitOfMeasurement)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Изменить", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>

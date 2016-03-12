@@ -1,28 +1,16 @@
-﻿@model IEnumerable<ClinicForAnimal1._2.Models.PatientCart.CartForPatient>
+﻿@model IEnumerable<ClinicForAnimal1._2.Models.PatientCart.PatientViewModel>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Diagnosis)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Treatment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AspNetUser.Email)
-        </th>
-        <th></th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <th>@item.Diagnosis</th>
-            <th>@item.Treatment</th>
-            <th>@item.AspNetUser.UserName</th>
-        </tr>
-
-    }
-</table>
+<div id="searchresults">
+   
+   @if (Model.Count() > 0)
+   {
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.Diagnosis</li>
+            <li>@item.Treatment</li>
+        }
+    </ul>
+   }
+   
+</div>

@@ -10,21 +10,28 @@
 <head>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+
+    <link href="~/Content/Login.css" rel="stylesheet" />
 </head>
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Главная страница", "Index", "Account")</li>
-                    <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
-                    <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
-                    <li>@Html.ActionLink("Войти в свой аккаунт", "Login", "Account")</li>
-
-                </ul>
+    <div class="login">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Главная страница", "Index", "Account")</li>
+                        <li>@Html.ActionLink("Карточки пациентов", "Index", "CartForPatients1")</li>
+                        <li>@Html.ActionLink("Календарь", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
+                        <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
+                        <li>@Html.ActionLink("Отзывы", "Index", "Reviews")</li>
+                        <li>@Html.ActionLink("Информация о пациентах", "InfoAboutPatient", "CartForPatients1")</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>*@
+    </div>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()

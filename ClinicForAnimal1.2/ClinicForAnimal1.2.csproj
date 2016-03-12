@@ -368,8 +368,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VetServices.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\TestWithCart\CartContext.cs" />
-    <Compile Include="Models\TestWithCart\PatientCart.cs" />
     <Compile Include="Models\Users\AspNetUser.cs">
       <DependentUpon>Users.tt</DependentUpon>
     </Compile>
@@ -391,6 +389,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ClinicForAnimal.mdf" />
+    <Content Include="App_Data\ClinicForAnimal_log.ldf">
+      <DependentUpon>ClinicForAnimal.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -402,6 +404,7 @@
     <Content Include="Content\fullcalendar.print.css" />
     <Content Include="Content\images.png" />
     <Content Include="Content\Index.css" />
+    <Content Include="Content\Login.css" />
     <Content Include="Content\Money.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -647,7 +650,6 @@
     <Content Include="Views\CartForPatients1\Delete.cshtml" />
     <Content Include="Views\CartForPatients1\Edit.cshtml" />
     <Content Include="Views\CartForPatients1\Index.cshtml" />
-    <Content Include="Views\CartForPatients1\Search.cshtml" />
     <Content Include="Views\CartForPatients1\InfoAboutPatient.cshtml" />
     <Content Include="Views\CartForPatients1\Search1.cshtml" />
     <Content Include="Views\AddDoctors\Login.cshtml" />
@@ -656,9 +658,7 @@
     <Content Include="Views\AddDoctors\Index.cshtml" />
     <Content Include="Views\Admin\InfoForAdmin.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

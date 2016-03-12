@@ -5,195 +5,206 @@
 <head>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Login.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Главная страница", "Index", "Account")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
-@section scripts{
+<div class="login">
+    @section scripts{
 
-    <script>
-    $(document).ready(function () {
+        <script>
+            $(document).ready(function () {
 
-        var sourceFullView = { url: '/Home/GetDiaryEvents/' };
-        var sourceSummaryView = { url: '/Home/GetDiarySummary/' };
-        var CalLoading = true;
+                var sourceFullView = { url: '/Home/GetDiaryEvents/' };
+                var sourceSummaryView = { url: '/Home/GetDiarySummary/' };
+                var CalLoading = true;
 
-        $('#calendar').fullCalendar({
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            },
-            minTime: '10:00',
-            maxTime: '19:00',
+                $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    minTime: '10:00',
+                    maxTime: '19:00',
 
-            monthNames: ['Январь','Февраль','Март','Апрель','Май','οюнь','οюль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
-            monthNamesShort: ['Янв.','Фев.','Март','Апр.','Май','οюнь','οюль','Авг.','Сент.','Окт.','Ноя.','Дек.'],
-            dayNames: ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],
-            dayNamesShort: ["ВС","ПН","ВТ","СР","ЧТ","ПТ","СБ"],
-            buttonText: {
-                prev: "&nbsp;&#9668;&nbsp;",
-                next: "&nbsp;&#9658;&nbsp;",
-                prevYear: "&nbsp;&lt;&lt;&nbsp;",
-                nextYear: "&nbsp;&gt;&gt;&nbsp;",
-                today: "Сегодня",
-                month: "Месяц",
-                week: "Неделя",
-                day: "День"
-            },
-            hiddenDays: [6,0],
+                    monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'οюнь', 'οюль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+                    monthNamesShort: ['Янв.', 'Фев.', 'Март', 'Апр.', 'Май', 'οюнь', 'οюль', 'Авг.', 'Сент.', 'Окт.', 'Ноя.', 'Дек.'],
+                    dayNames: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+                    dayNamesShort: ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"],
+                    buttonText: {
+                        prev: "&nbsp;&#9668;&nbsp;",
+                        next: "&nbsp;&#9658;&nbsp;",
+                        prevYear: "&nbsp;&lt;&lt;&nbsp;",
+                        nextYear: "&nbsp;&gt;&gt;&nbsp;",
+                        today: "Сегодня",
+                        month: "Месяц",
+                        week: "Неделя",
+                        day: "День"
+                    },
+                    hiddenDays: [6, 0],
 
 
 
-            defaultView: 'agendaDay',
-            editable: true,
-            allDaySlot: false,
-            selectable: true,
-            slotMinutes: 15,
-            events: '/Home/GetDiaryEvents/',
-            eventClick: function (calEvent, jsEvent, view) {
-                alert('You clicked on event id: ' + calEvent.id
-                    + "\nSpecial ID: " + calEvent.someKey
-                    + "\nAnd the title is: " + calEvent.title);
+                    defaultView: 'agendaDay',
+                    editable: true,
+                    allDaySlot: false,
+                    selectable: true,
+                    slotMinutes: 15,
+                    events: '/Home/GetDiaryEvents/',
+                    eventClick: function (calEvent, jsEvent, view) {
+                        alert('You clicked on event id: ' + calEvent.id
+                            + "\nSpecial ID: " + calEvent.someKey
+                            + "\nAnd the title is: " + calEvent.title);
 
-            },
+                    },
 
-            eventDrop: function (event, dayDelta, minuteDelta, allDay, revertFunc) {
-                if (confirm("Confirm move?")) {
-                    UpdateEvent(event.id, event.start);
+                    eventDrop: function (event, dayDelta, minuteDelta, allDay, revertFunc) {
+                        if (confirm("Confirm move?")) {
+                            UpdateEvent(event.id, event.start);
+                        }
+                        else {
+                            revertFunc();
+                        }
+                    },
+
+                    eventResize: function (event, dayDelta, minuteDelta, revertFunc) {
+
+                        if (confirm("Confirm change appointment length?")) {
+                            UpdateEvent(event.id, event.start, event.end);
+                        }
+                        else {
+                            revertFunc();
+                        }
+                    },
+
+
+
+                    dayClick: function (date, allDay, jsEvent, view) {
+                        $('#eventTitle').val("");
+                        $('#eventDate').val($.fullCalendar.formatDate(date, 'dd/MM/yyyy'));
+                        $('#eventTime').val($.fullCalendar.formatDate(date, 'HH:mm'));
+                        ShowEventPopup(date);
+                    },
+
+                    viewRender: function (view, element) {
+
+                        if (!CalLoading) {
+                            if (view.name == 'month') {
+                                $('#calendar').fullCalendar('removeEventSource', sourceFullView);
+                                $('#calendar').fullCalendar('removeEvents');
+                                $('#calendar').fullCalendar('addEventSource', sourceSummaryView);
+                            }
+                            else {
+                                $('#calendar').fullCalendar('removeEventSource', sourceSummaryView);
+                                $('#calendar').fullCalendar('removeEvents');
+                                $('#calendar').fullCalendar('addEventSource', sourceFullView);
+                            }
+                        }
+                    }
+
+                });
+
+                CalLoading = false;
+
+
+            });
+
+            $('#btnInit').click(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: "/Home/Init",
+                    success: function (response) {
+                        if (response == 'True') {
+                            $('#calendar').fullCalendar('refetchEvents');
+                            alert('Database populated! ');
+                        }
+                        else {
+                            alert('Error, could not populate database!');
+                        }
+                    }
+                });
+            });
+
+            $('#btnPopupCancel').click(function () {
+                ClearPopupFormValues();
+                $('#popupEventForm').hide();
+            });
+
+            $('#btnPopupSave').click(function () {
+
+                $('#popupEventForm').hide();
+
+                var dataRow = {
+                    'Title': $('#eventTitle').val(),
+                    'NewEventDate': $('#eventDate').val(),
+                    'NewEventTime': $('#eventTime').val(),
+                    'NewEventDuration': $('#eventDuration').val()
                 }
-                else {
-                    revertFunc();
-                }
-            },
 
-            eventResize: function (event, dayDelta, minuteDelta, revertFunc) {
+                ClearPopupFormValues();
 
-                if (confirm("Confirm change appointment length?")) {
-                    UpdateEvent(event.id, event.start, event.end);
-                }
-                else {
-                    revertFunc();
-                }
-            },
+                $.ajax({
+                    type: 'POST',
+                    url: "/Home/SaveEvent",
+                    data: dataRow,
+                    success: function (response) {
+                        if (response == 'True') {
+                            $('#calendar').fullCalendar('refetchEvents');
+                            alert('Запись прошла успешно!');
+                        }
+                        else {
+                            alert('Ошибка, заполните все данные!');
+                        }
+                    }
+                });
+            });
 
+            function ShowEventPopup(date) {
+                ClearPopupFormValues();
+                $('#popupEventForm').show();
+                $('#eventTitle').focus();
+            }
 
-
-            dayClick: function (date, allDay, jsEvent, view) {
+            function ClearPopupFormValues() {
+                $('#eventID').val("");
                 $('#eventTitle').val("");
-                $('#eventDate').val($.fullCalendar.formatDate(date, 'dd/MM/yyyy'));
-                $('#eventTime').val($.fullCalendar.formatDate(date, 'HH:mm'));
-                ShowEventPopup(date);
-            },
-
-            viewRender: function (view, element) {
-
-                if (!CalLoading) {
-                    if (view.name == 'month') {
-                        $('#calendar').fullCalendar('removeEventSource', sourceFullView);
-                        $('#calendar').fullCalendar('removeEvents');
-                        $('#calendar').fullCalendar('addEventSource', sourceSummaryView);
-                    }
-                    else {
-                        $('#calendar').fullCalendar('removeEventSource', sourceSummaryView);
-                        $('#calendar').fullCalendar('removeEvents');
-                        $('#calendar').fullCalendar('addEventSource', sourceFullView);
-                    }
-                }
+                $('#eventDateTime').val("");
+                $('#eventDuration').val("");
             }
 
-        });
+            function UpdateEvent(EventID, EventStart, EventEnd) {
 
-        CalLoading = false;
-
-
-    });
-
-    $('#btnInit').click(function () {
-        $.ajax({
-            type: 'POST',
-            url: "/Home/Init",
-            success: function (response) {
-                if (response == 'True') {
-                    $('#calendar').fullCalendar('refetchEvents');
-                    alert('Database populated! ');
+                var dataRow = {
+                    'ID': EventID,
+                    'NewEventStart': EventStart,
+                    'NewEventEnd': EventEnd
                 }
-                else {
-                    alert('Error, could not populate database!');
-                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: "/Home/UpdateEvent",
+                    dataType: "json",
+                    contentType: "application/json",
+                    data: JSON.stringify(dataRow)
+                });
             }
-        });
-    });
 
-    $('#btnPopupCancel').click(function () {
-        ClearPopupFormValues();
-        $('#popupEventForm').hide();
-    });
+        </script>
 
-    $('#btnPopupSave').click(function () {
 
-        $('#popupEventForm').hide();
-
-        var dataRow = {
-            'Title': $('#eventTitle').val(),
-            'NewEventDate': $('#eventDate').val(),
-            'NewEventTime': $('#eventTime').val(),
-            'NewEventDuration': $('#eventDuration').val()
-        }
-
-        ClearPopupFormValues();
-
-        $.ajax({
-            type: 'POST',
-            url: "/Home/SaveEvent",
-            data: dataRow,
-            success: function (response) {
-                if (response == 'True') {
-                    $('#calendar').fullCalendar('refetchEvents');
-                    alert('Запись прошла успешно!');
-                }
-                else {
-                    alert('Ошибка, заполните все данные!');
-                }
-            }
-        });
-    });
-
-    function ShowEventPopup(date) {
-        ClearPopupFormValues();
-        $('#popupEventForm').show();
-        $('#eventTitle').focus();
     }
 
-    function ClearPopupFormValues() {
-        $('#eventID').val("");
-        $('#eventTitle').val("");
-        $('#eventDateTime').val("");
-        $('#eventDuration').val("");
-    }
-
-    function UpdateEvent(EventID, EventStart, EventEnd) {
-
-        var dataRow = {
-            'ID': EventID,
-            'NewEventStart': EventStart,
-            'NewEventEnd': EventEnd
-        }
-
-        $.ajax({
-            type: 'POST',
-            url: "/Home/UpdateEvent",
-            dataType: "json",
-            contentType: "application/json",
-            data: JSON.stringify(dataRow)
-        });
-    }
-
-    </script>
-
-
-}
-
-
+</div>
 <div class="container">
 
     @*<div>

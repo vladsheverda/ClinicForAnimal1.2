@@ -30,7 +30,7 @@ namespace ClinicForAnimal1._2.Controllers
             }
             return View(review);
         }
-        [Authorize(Roles ="user")]
+        [Authorize]
         public ActionResult Create()
         {
             return View();

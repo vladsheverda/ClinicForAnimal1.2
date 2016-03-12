@@ -15,7 +15,6 @@ namespace ClinicForAnimal1._2.Controllers
     {
         private VerServices db = new VerServices();
 
-        // GET: VeterinarianServices
         public ActionResult Index()
         {
             return View(db.VeterinarianServices.ToList());

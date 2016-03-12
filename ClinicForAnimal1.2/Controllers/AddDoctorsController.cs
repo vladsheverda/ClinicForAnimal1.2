@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace ClinicForAnimal1._2.Controllers
 {
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "admin,doctor")]
     public class AddDoctorsController : Controller
     {
         private ApplicationUserManager UserManager
@@ -88,7 +88,7 @@ namespace ClinicForAnimal1._2.Controllers
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                   // user.EmailConfirmed = true;
+                    user.EmailConfirmed = true;
                     await UserManager.AddToRoleAsync(user.Id, "doctor");
                     return RedirectToAction("Login", "AddDoctors");
                 }

@@ -9,6 +9,9 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>InfoForAdmin</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
     <h4>Администрирование</h4>
@@ -17,15 +20,21 @@
             <div class="container">
                 <div class="navbar-header">
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Главная страница", "Index", "Account")</li>
+                        <li>@Html.ActionLink("Главная страница","Index","Account")</li>
+                        <li>@Html.ActionLink("Календарь", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
                         <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
-                        <li>@Html.ActionLink("Изменить услуги и цена", "Edit", "VeterinarianServices")</li>
-                        <li>@Html.ActionLink("Добавить нового врача", "Register", "AddDoctors")</li>
-                        <li>@Html.ActionLink("Добавить новую роль", "Create", "Roles")</li>
+                        <li>@Html.ActionLink("Отзывы", "Index", "Reviews")</li>
+                        <li>@Html.ActionLink("Информация о карточки пациента", "InfoAboutPatient", "CartForPatients1")</li>
+                        <li>@Html.ActionLink("Добавить врача","Register","AddDoctors")</li>
+                        <li>@Html.ActionLink("Изменить услуги и цены","Index", "VeterinarianServices")</li>
+                        <li>@Html.ActionLink("Добавить роль","Index","Roles")</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>

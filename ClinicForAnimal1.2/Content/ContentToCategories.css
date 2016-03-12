@@ -20,8 +20,8 @@ DIV#header {
 
 DIV#content {
     border-left: 2px solid gray;
-    margin-left: 9em;
-    padding: 1em;
+    float:left;
+        padding: 5px 17px;
 }
 
 DIV#categories {

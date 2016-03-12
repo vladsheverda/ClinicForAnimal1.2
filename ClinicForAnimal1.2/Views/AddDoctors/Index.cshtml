@@ -9,24 +9,29 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Index.css" rel="stylesheet" />
 </head>
 <body>
-    <div> 
-        <h2>Врач добавлен</h2>
-    </div>
-
     <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Карточки пациентов", "Index", "CartForPatients1")</li>
-                        <li>@Html.ActionLink("Calendar", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
-                        <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
-                        <li>@Html.ActionLink("Отзывы", "Index", "Reviews")</li>
-                    </ul>
-                </div>
+        <div class="container">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Главная страница", "Index", "Account")</li>
+                    <li>@Html.ActionLink("Карточки пациентов", "Index", "CartForPatients1")</li>
+                    <li>@Html.ActionLink("Календарь", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
+                    <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
+                    <li>@Html.ActionLink("Отзывы", "Index", "Reviews")</li>
+                    <li>@Html.ActionLink("Администрирование", "InfoForAdmin", "Admin")</li>
+                    <li>@Html.ActionLink("Информация о пациентах", "InfoAboutPatient", "CartForPatients1")</li>
+                </ul>
             </div>
         </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>

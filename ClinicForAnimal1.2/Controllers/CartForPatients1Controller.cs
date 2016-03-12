@@ -8,11 +8,10 @@ using System.Collections.Generic;
 
 namespace ClinicForAnimal1._2.Controllers
 {
-    [Authorize(Roles ="doctor")]
+    [Authorize(Roles = "doctor")]
     public class CartForPatients1Controller : Controller
     {
         PatientCart db = new PatientCart();
-        // GET: CartForPatients1
         public ActionResult Index()
         {
             var a = db.CartForPatient.Include(c => c.AspNetUser);
@@ -99,27 +98,24 @@ namespace ClinicForAnimal1._2.Controllers
 
 
         [HttpPost]
-
-
         public ActionResult Search1(string user)
         {
-            //var allinfo = db.AspNetUsers.Where(a => a.UserName.Contains(user)).ToList();
-            //if (allinfo.Count<=0)
-            //{
-            //    HttpNotFound();
-            //}
-            //var info = db.CartForPatient.Include(c=>c.AspNetUser).Where(a => a.AspNetUser.Email.Contains(user));
-            List<CartForPatient> info = db.CartForPatient.Include(c => c.AspNetUser).Where(a => a.AspNetUser.Email.Contains(user)).ToList();
-            // List<CartForPatient> res = db.CartForPatient.Include(w=>w.AspNetUser).Select(c => c.AspNetUser).Where(e => e.UserName.Contains(user));
-            //List<CartForPatient> res = 
-            //var b = db.CartForPatient.Include(c => c.AspNetUser);
-            //var b = db.CartForPatient.Where(c => c.AspNetUser.Email.Contains(user));
-            return PartialView(info);
+            var allinfo = db.AspNetUsers.Where(a => a.UserName.Contains(user)).ToList();
+            List<PatientViewModel> list = new List<PatientViewModel>();
+            if (allinfo.Count <= 0)
+            {
+                return PartialView(list);
+            }
+            foreach (var item in allinfo)
+            {
+                list = PatientViewModel.Parse(item);
+            }
+            return PartialView(list);
         }
-
+        [AllowAnonymous]
         public ActionResult InfoAboutPatient()
         {
-            return View();
+            return View(new List<CartForPatient>());
         }
         protected override void Dispose(bool disposing)
         {

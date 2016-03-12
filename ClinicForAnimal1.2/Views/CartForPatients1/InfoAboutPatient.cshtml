@@ -1,17 +1,64 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "InfoAboutPatient";
 }
 
-<div>
-    @using (Ajax.BeginForm("Search1", new AjaxOptions { UpdateTargetId = "searchresults" }))
-        {
-        <input type="text" name="name" />
-        <input type="submit" value="Поиск" />
-        }
-    <div id="searchresults">
-        @Html.Partial("Search")
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Login.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Календар", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
+                    <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
+                    <li>@Html.ActionLink("Отзывы", "Index", "Reviews")</li>
+                    <li>@Html.ActionLink("Администрирование", "InfoForAdmin", "Admin")</li>
+                    <li>@Html.ActionLink("Информация для врачей", "Index", "AddDoctors")</li>
+                    <li>@Html.ActionLink("Информация о карточки пациента", "InfoForPatient", "CartForPatient")</li>
+                </ul>
+            </div>
+        </div>
     </div>
-</div>
-@Scripts.Render("~/scripts/jquery-1.10.2.min.js")
-@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+    <div class="login">
+        <div class="search">
 
+            <input type="search" id="search-string" />
+            <input type="submit" value="Поиск" id="search" />
+
+            <div id="searchresults">
+
+            </div>
+        </div>
+        <script>
+            var lastRequest;
+            $(document).ready(function () {
+                $('.search').on('click', '#search', function () {
+                    if (lastRequest != $('#search-string').val()) {
+                        lastRequest = $('#search-string').val() + '8';
+
+                        $.ajax({
+                            url: '@Url.Action("Search1", "CartForPatients1")',
+                            method: "POST",
+                            data: { user: $('#search-string').val() },
+                            success: function (data) {
+                                $('#searchresults').html(data);
+                            }
+                        }
+                            )
+                    }
+                })
+            })
+
+        </script>
+    </div>
+    @Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+
+</body>

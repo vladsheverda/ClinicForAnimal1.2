@@ -12,64 +12,71 @@
     <title>Create</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Login.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Calendar", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Главная страница", "Index", "Account")</li>
+                    <li>@Html.ActionLink("Календар", "Index", "Home")</li>
                     <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
                     <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
                     <li>@Html.ActionLink("Отзывы", "Index", "Reviews")</li>
-
+                    <li>@Html.ActionLink("Администрирование", "InfoForAdmin", "Admin")</li>
+                    <li>@Html.ActionLink("Информация для врачей", "Index", "AddDoctors")</li>
+                    <li>@Html.ActionLink("Информация о карточки пациента", "InfoForPatient", "CartForPatient")</li>
                 </ul>
             </div>
         </div>
     </div>
     <br />
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+    <div class="login">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
-            <h4>Отзывы</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.Label("имя и фамилия")
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.NameOfPatient, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.NameOfPatient, "", new { @class = "text-danger" })
+            <div class="form-horizontal">
+                <h4>Отзывы</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("имя и фамилия")
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NameOfPatient, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NameOfPatient, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Сообщение")
+                    <div class="col-md-10">
+                        @foreach (var item in ViewData.ModelMetadata.Properties)
+                        {
+                            <div class="form-group">
+                                @if (item.PropertyName == "Review1")
+                                {
+
+                                    @Html.TextArea(item.PropertyName, null,
+                                new { @class = "form-control", rows = 5, cols = 75 })
+                                }
+                            </div>
+                        }
+
+                        @Html.ValidationMessageFor(model => model.Review1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Отправить" class="btn btn-default" />
+                    </div>
                 </div>
             </div>
+        }
+    </div>
 
-            <div class="form-group">
-                @Html.Label("Сообщение")
-                <div class="col-md-10">
-                    @foreach (var item in ViewData.ModelMetadata.Properties)
-                    {
-                        <div class="form-group">
-                            @if (item.PropertyName == "Review1")
-                            {
-
-                                @Html.TextArea(item.PropertyName, null,
-                                new { @class = "form-control", rows = 5,cols = 75 })
-                            }
-                        </div>
-                    }
-                   
-                    @Html.ValidationMessageFor(model => model.Review1, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Отправить" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-    }
 
     <div>
         @Html.ActionLink("Вернуться к главному окну", "Index")

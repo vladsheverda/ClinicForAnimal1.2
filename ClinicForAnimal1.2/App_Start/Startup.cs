@@ -21,10 +21,11 @@ namespace ClinicForAnimal1._2.Models
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login"),
-               
+
             });
 
             ApplicationSignInManager.RegisterAuth(app);
 
+        }
     }
 }

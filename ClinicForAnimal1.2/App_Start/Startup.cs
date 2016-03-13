@@ -23,9 +23,7 @@ namespace ClinicForAnimal1._2.Models
                 LoginPath = new PathString("/Account/Login"),
 
             });
-
             ApplicationSignInManager.RegisterAuth(app);
-
         }
     }
 }

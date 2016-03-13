@@ -658,7 +658,14 @@
     <Content Include="Views\AddDoctors\Index.cshtml" />
     <Content Include="Views\Admin\InfoForAdmin.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\NewDB\DiaryContextNew\" />
+    <Folder Include="Models\NewDB\DoctorInfoNew\" />
+    <Folder Include="Models\NewDB\PatientCartNew\" />
+    <Folder Include="Models\NewDB\ReviewsNew\" />
+    <Folder Include="Models\NewDB\ServicesNew\" />
+    <Folder Include="Models\NewDB\UsersNew\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

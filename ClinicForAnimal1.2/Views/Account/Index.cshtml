@@ -5,34 +5,35 @@
 <head>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <link href="~/Content/Login.css" rel="stylesheet" />
     <link href="~/Content/Index.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="user">
-        @if (Request.IsAuthenticated)
+    <div class="login">
+        <div class="user">
+            @if (Request.IsAuthenticated)
             {
                 using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                 {
-                @Html.AntiForgeryToken()
+                    @Html.AntiForgeryToken()
 
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            @Html.ActionLink("Здравствуйте, " + User.Identity.GetUserName() + "!", "Index", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        </li>
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
+                    </ul>
+                }
+            }
+            else
+            {
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @Html.ActionLink("Здравствуйте, " + User.Identity.GetUserName() + "!", "Index", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
-                    </li>
-                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
+                    <li>@Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                    <li>@Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
                 </ul>
             }
-        }
-        else
-        {
-            <ul class="nav navbar-nav navbar-right">
-                <li>@Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                <li>@Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-            </ul>
-        }
+        </div>
     </div>
-
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -43,7 +44,7 @@
                         <li>@Html.ActionLink("Отзывы", "Index", "Reviews")</li>
                         <li>@Html.ActionLink("Администрирование", "InfoForAdmin", "Admin")</li>
                         <li>@Html.ActionLink("Информация для врачей", "Index", "AddDoctors")</li>
-                        <li>@Html.ActionLink("Информация о карточки пациента", "InfoForPatient", "CartForPatient")</li>
+                        <li>@Html.ActionLink("Информация о карточке пациента", "InfoAboutPatient", "CartForPatients1")</li>
                     </ul>
                 </div>
             </div>

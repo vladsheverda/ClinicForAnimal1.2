@@ -12,6 +12,7 @@
     <title>Index</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Login.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,49 +25,52 @@
                     <li>@Html.ActionLink("Отзывы", "Index", "Reviews")</li>
                     <li>@Html.ActionLink("Администрирование", "InfoForAdmin", "Admin")</li>
                     <li>@Html.ActionLink("Информация для врачей", "Index", "AddDoctors")</li>
-                    <li>@Html.ActionLink("Информация о карточки пациента", "InfoForPatient", "CartForPatient")</li>
+                    <li>@Html.ActionLink("Информация о карточке пациента", "InfoAboutPatient", "CartForPatient1")</li>
                 </ul>
             </div>
         </div>
     </div>
-    <p>
-        @Html.ActionLink("Создать новую карточку", "Create")
-        @Html.ActionLink("Информация по пациенте", "InfoAboutPatient")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.Label("Диагноз больного")
-            </th>
-            <th>
-                @Html.Label("Лечение")
-            </th>
-            <th>
-                @Html.Label("Имя пользователя")
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Diagnosis)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Treatment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AspNetUser.UserName)
-            </td>
-            <td>
-                @Html.ActionLink("Изменить карточку", "Edit", new { id=item.IdCaseRecord }) |
-    
-                @Html.ActionLink("Удалить", "Delete", new { id=item.IdCaseRecord })
-            </td>
-        </tr>
-    }
-    
-    </table>
+    <div class="login">
+        <p>
+            @Html.ActionLink("Создать новую карточку", "Create")
+            @Html.ActionLink("Информация по пациенте", "InfoAboutPatient")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.Label("Диагноз больного")
+                </th>
+                <th>
+                    @Html.Label("Лечение")
+                </th>
+                <th>
+                    @Html.Label("Имя пользователя")
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Diagnosis)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Treatment)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AspNetUser.UserName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Изменить карточку", "Edit", new { id = item.IdCaseRecord }) |
+
+                        @Html.ActionLink("Удалить", "Delete", new { id = item.IdCaseRecord })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
 </body>

@@ -8,6 +8,8 @@ using System.Web.Mvc;
 
 namespace ClinicForAnimal1._2.Controllers
 {
+
+    //последняя версия
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;

@@ -6,62 +6,67 @@
 <head>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <link href="~/Content/Login.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Календарь", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Главная страница","Index", "Account")</li>
+                    <li>@Html.ActionLink("Календар", "Index", "Home")</li>
                     <li>@Html.ActionLink("Доктора", "ShowInfoDoctor", "DoctorInfo")</li>
                     <li>@Html.ActionLink("Услуги и цены", "Categories", "VeterinarianServices")</li>
-                    <li>@Html.ActionLink("Регистрация", "Register", "Account")</li>
-                    <li>@Html.ActionLink("Войти в свой аккаунт", "Login", "Account")</li>
+                    <li>@Html.ActionLink("Отзывы", "Index", "Reviews")</li>
+                    <li>@Html.ActionLink("Администрирование", "InfoForAdmin", "Admin")</li>
+                    <li>@Html.ActionLink("Информация для врачей", "Index", "AddDoctors")</li>
+                    <li>@Html.ActionLink("Информация о карточки пациента", "InfoForPatient", "CartForPatient")</li>
                 </ul>
             </div>
         </div>
-    </div>>
+    </div>
 
+    <div class="login">
 
+        <table class="table">
+            @*<tr>
+                    <th>
+                        @Html.DisplayName("имя")
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Position)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th></th>
+                </tr>*@
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Position)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>*@
+                    <td>@item.Name</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Position</td>
+                    <td>@item.Description</td>
+                </tr>
+            }
 
-    <table class="table">
-        @*<tr>
-                <th>
-                    @Html.DisplayName("имя")
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LastName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Position)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th></th>
-            </tr>*@
-        @foreach (var item in Model)
-        {
-            <tr>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Position)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>*@
-                <td>@item.Name</td>
-                <td>@item.LastName</td>
-                <td>@item.Position</td>
-                <td>@item.Description</td>
-            </tr>
-        }
-
-    </table>
+        </table>
+    </div>
 </body>

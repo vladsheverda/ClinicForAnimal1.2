@@ -1,25 +1,45 @@
 ﻿@model IEnumerable<ClinicForAnimal1._2.Models.ApplicationRole>
 
-    @{
-        ViewBag.Title = "Роли";
-    }
+@{
+    ViewBag.Title = "Роли";
+}
+<head>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Login.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Администрирование", "InfoForAdmin", "Admin")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    <h2>Роли</h2>
-    <table class="table">
-        <tr>
-            <th>Название</th>
-            <th>Описание</th>
-            <th></th>
-        </tr>
-        @foreach (var item in Model)
-        {
+
+
+    <div class="login">
+        <h2>Роли</h2>
+        <table class="table">
             <tr>
-                <td>@item.Name</td>
-                <td>@item.Description</td>
-                <td>
-                    @Html.ActionLink("Изменить", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
-                </td>
+                <th>Название</th>
+                <th>Описание</th>
+                <th></th>
             </tr>
-        }
-    </table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>
+                        @Html.ActionLink("Изменить", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>

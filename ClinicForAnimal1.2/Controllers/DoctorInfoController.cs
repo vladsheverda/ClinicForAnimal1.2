@@ -10,7 +10,6 @@ namespace ClinicForAnimal1._2.Controllers
     public class DoctorInfoController : Controller
     {
         ClinicForAnimalEntities doctorInfo = new ClinicForAnimalEntities ();
-        // GET: DoctorInfo
         [HttpGet]
         public ActionResult Create()
         {

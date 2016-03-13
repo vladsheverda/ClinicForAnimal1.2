@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace ClinicForAnimal1._2.Models.PatientCart

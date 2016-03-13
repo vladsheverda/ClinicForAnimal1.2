@@ -9,8 +9,6 @@ namespace ClinicForAnimal1._2.Controllers
     public class ReviewsController : Controller
     {
         private ReviewsEntity db = new ReviewsEntity();
-
-        // GET: Reviews
         [AllowAnonymous]
         public ActionResult Index()
         {

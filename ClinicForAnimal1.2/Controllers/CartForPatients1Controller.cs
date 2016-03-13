@@ -8,18 +8,19 @@ using System.Collections.Generic;
 
 namespace ClinicForAnimal1._2.Controllers
 {
+    
     [Authorize]
     public class CartForPatients1Controller : Controller
     {
         PatientCart db = new PatientCart();
-        [Authorize(Roles = "doctor")]
+        [Authorize(Roles = "doctor,admin")]
         public ActionResult Index()
         {
             var a = db.CartForPatient.Include(c => c.AspNetUser);
             return View(a.ToList());
         }
 
-        [Authorize(Roles = "doctor")]
+        [Authorize(Roles = "doctor,admin")]
         [HttpGet]
         public ActionResult Create()
         {
@@ -42,7 +43,7 @@ namespace ClinicForAnimal1._2.Controllers
 
             return View(cartForPatient);
         }
-        [Authorize(Roles = "doctor")]
+        [Authorize(Roles = "doctor,admin")]
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -70,7 +71,7 @@ namespace ClinicForAnimal1._2.Controllers
         }
 
 
-        [Authorize(Roles = "doctor")]
+        [Authorize(Roles = "doctor,admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -94,10 +95,6 @@ namespace ClinicForAnimal1._2.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-
-
-
 
         [HttpPost]
         public ActionResult Search1(string user)

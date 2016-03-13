@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Globalization; // << dont forget to add this for converting dates to localtime
+using System.Globalization; 
 using ClinicForAnimal1._2;
 using ClinicForAnimal1._2.Models.Calendar;
 

@@ -10,7 +10,6 @@ namespace ClinicForAnimal1._2.Controllers
     [Authorize(Roles = "admin")]
     public class RolesController : Controller
     {
-        // GET: Roles
         private ApplicationRoleManager RoleManager
         {
             get
